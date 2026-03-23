@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST vs GraphQL - Сравнение подходов</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>REST vs GraphQL</h1>
+            <div class="controls">
+                <button id="reset-metrics" class="btn-reset">🔄 Сбросить метрики</button>
+            </div>
+        </header>
+
+        <div class="comparison-grid">
+            <!-- REST колонка -->
+            <div class="api-card rest-card">
+                <div class="card-header">
+                    <h2>REST API</h2>
+                    <div id="rest-stats" class="stats">Запросов: 0</div>
+                </div>
+                <div class="card-content">
+                    <div class="section">
+                        <h3>Получить пользователя с задачами</h3>
+                        <select id="rest-user-select">
+                            <option value="">Выберите пользователя</option>
+                        </select>
+                    </div>
+
+                    <div class="section">
+                        <h3>Получить всех пользователей с задачами</h3>
+                        <button id="rest-all-users" class="btn-rest">Получить всех пользователей</button>
+                    </div>
+
+                    <div class="section">
+                        <button id="rest-metrics" class="btn-metrics">Показать детальную статистику</button>
+                    </div>
+
+                    <div id="rest-result" class="result"></div>
+                </div>
+            </div>
+
+            <div class="api-card graphql-card">
+                <div class="card-header">
+                    <h2>GraphQL API</h2>
+                    <div id="graphql-stats" class="stats">Запросов: 0</div>
+                </div>
+                <div class="card-content">
+                    <div class="section">
+                        <h3>Получить пользователя с задачами</h3>
+                        <select id="graphql-user-select">
+                            <option value="">Выберите пользователя</option>
+                        </select>
+                    </div>
+
+                    <div class="section">
+                        <h3>Получить всех пользователей с задачами</h3>
+                        <button id="graphql-all-users" class="btn-graphql">Получить всех пользователей</button>
+                    </div>
+
+                    <div class="section">
+                        <button id="graphql-metrics" class="btn-metrics">Показать детальную статистику</button>
+                    </div>
+
+                    <div id="graphql-result" class="result"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="forms-section">
+            <div class="forms-grid">
+                <div class="form-card">
+                    <h3>Создать пользователя</h3>
+                    <form id="create-user-form">
+                        <input type="text" id="user-name" placeholder="Имя" required>
+                        <input type="email" id="user-email" placeholder="Email" required>
+                        <button type="submit" class="btn-primary">Создать пользователя</button>
+                    </form>
+                </div>
+
+                <div class="form-card">
+                    <h3>Создать задачу</h3>
+                    <form id="create-task-form">
+                        <input type="text" id="task-title" placeholder="Заголовок задачи" required>
+                        <textarea id="task-description" placeholder="Описание задачи" rows="3"></textarea>
+                        <input type="number" id="task-user-id" placeholder="ID пользователя" required>
+                        <button type="submit" class="btn-primary">Создать задачу</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>

@@ -1,0 +1,350 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Заголовок */
+header {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.controls {
+    margin-top: 15px;
+}
+
+.btn-reset {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-reset:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Сетка сравнения */
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.api-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.rest-card .card-header {
+    background: linear-gradient(135deg, #ff9800 0%, #ffb74d 100%);
+    color: white;
+}
+
+.graphql-card .card-header {
+    background: linear-gradient(135deg, #51cf66 0%, #69db7e 100%);
+    color: white;
+}
+
+.card-header h2 {
+    font-size: 1.5rem;
+}
+
+.stats {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    display: flex;
+    gap: 8px;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.section {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.section h3 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 1rem;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+select:focus {
+    outline: none;
+    border-color: #ff9800;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-rest {
+    background: #ff9800;
+    color: white;
+    width: 100%;
+}
+
+.btn-rest:hover {
+    background: #f57c00;
+}
+
+.btn-graphql {
+    background: #51cf66;
+    color: white;
+    width: 100%;
+}
+
+.btn-graphql:hover {
+    background: #37b24d;
+}
+
+.btn-metrics {
+    background: #5c7cfa;
+    color: white;
+    width: 100%;
+}
+
+.btn-metrics:hover {
+    background: #4263eb;
+}
+
+.btn-primary {
+    background: #5c7cfa;
+    color: white;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Результаты */
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    max-height: 400px;
+    overflow: auto;
+    border: 1px solid #e0e0e0;
+}
+
+.result.hidden {
+    display: none;
+}
+
+.result-header {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.result-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #495057;
+    margin-bottom: 8px;
+}
+
+.result-stats {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.badge-rest,
+.badge-graphql {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.badge-rest {
+    background: #ff9800;
+    color: white;
+}
+
+.badge-graphql {
+    background: #51cf66;
+    color: white;
+}
+
+.result-info {
+    background: #e9ecef;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.result-info ul {
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.result-info li {
+    margin: 5px 0;
+}
+
+.highlight {
+    color: #ff9800;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.result pre {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    overflow-x: auto;
+    background: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+    margin: 0;
+}
+
+.loading {
+    text-align: center;
+    color: #6c757d;
+    padding: 30px;
+    font-size: 0.9rem;
+}
+
+.error {
+    text-align: center;
+    color: #f57c00;
+    padding: 30px;
+    font-size: 0.9rem;
+}
+
+/* Формы */
+.forms-section {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.forms-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.form-card {
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.form-card h3 {
+    margin-bottom: 15px;
+    color: #495057;
+    font-size: 1.1rem;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: inherit;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #ff9800;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .comparison-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .forms-grid {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+}
