@@ -1,0 +1,35 @@
+Создать пользователя:
+mutation {
+  createUser(input: {name: "Наталья Васюкова", email: "nat@male.com"}) {
+    id
+    name
+    email
+  }
+}
+
+Получить пользователя с его задачами (один запрос вместо двух в REST):
+{
+  user(id: 1) {
+    id
+    name
+    email
+    tasks {
+      id
+      title
+      description
+    }
+  }
+}
+
+Получить всех пользователей и их задачи:
+{
+  users {
+    id
+    name
+    email
+    tasks {
+      id
+      title
+    }
+  }
+}
